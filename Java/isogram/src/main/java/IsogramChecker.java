@@ -1,18 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 class IsogramChecker {
 
     boolean isIsogram(String phrase) {
         Integer length = phrase.length();
-        List<String> words = new ArrayList<String>();
-        String letter = "";
+        String lowerCasePhrase = phrase.toLowerCase();
+        Set<Character> words = new HashSet<Character>();
 
         for (int i = 0; i < length; i++) {
-            letter = Character.toString(phrase.charAt(i)).toLowerCase();
-            if (words.contains(letter)
-                && !letter.equals("-")
-                && !letter.equals(" ")) {
+            Character letter = lowerCasePhrase.charAt(i);
+            if (!letter.equals('-')
+                && !letter.equals(' ')
+                && words.contains(letter)) {
                 return false;
             }
             words.add(letter);
