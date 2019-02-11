@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HammingTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2019-02-11T13:35:57" hostname="WINTERMUTE" time="0.025">
+<testsuite name="HammingTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2019-02-11T14:25:56" hostname="WINTERMUTE" time="0.048">
   <properties/>
-  <testcase name="testNonUniqueCharacterInFirstStrand" classname="HammingTest" time="0.002"/>
-  <testcase name="testSameNucleotidesInDifferentPositions" classname="HammingTest" time="0.002"/>
-  <testcase name="testCompleteDistanceInSingleNucleotideStrand" classname="HammingTest" time="0.001"/>
-  <testcase name="testNoDistanceBetweenEmptyStrands" classname="HammingTest" time="0.0"/>
+  <testcase name="testNonUniqueCharacterInFirstStrand" classname="HammingTest" time="0.02"/>
+  <testcase name="testSameNucleotidesInDifferentPositions" classname="HammingTest" time="0.0"/>
+  <testcase name="testCompleteDistanceInSingleNucleotideStrand" classname="HammingTest" time="0.0"/>
+  <testcase name="testNoDistanceBetweenEmptyStrands" classname="HammingTest" time="0.003"/>
   <testcase name="testNoDistanceBetweenShortIdenticalStrands" classname="HammingTest" time="0.0"/>
   <testcase name="testSmallDistanceInSmallStrand" classname="HammingTest" time="0.0"/>
   <testcase name="testNoDistanceBetweenLongIdenticalStrands" classname="HammingTest" time="0.0"/>
@@ -12,7 +12,7 @@
   <testcase name="testSmallDistanceInMediumStrand" classname="HammingTest" time="0.0"/>
   <testcase name="testLargeDistanceInOffByOneStrand" classname="HammingTest" time="0.0"/>
   <testcase name="testLargeDistanceInPermutedStrand" classname="HammingTest" time="0.0"/>
-  <testcase name="testValidatesFirstStrandNotLonger" classname="HammingTest" time="0.012"/>
+  <testcase name="testValidatesFirstStrandNotLonger" classname="HammingTest" time="0.017"/>
   <testcase name="testSmallDistanceInLongStrand" classname="HammingTest" time="0.0"/>
   <testcase name="testValidatesSecondStrandNotLonger" classname="HammingTest" time="0.0"/>
   <testcase name="testCompleteDistanceInSmallStrand" classname="HammingTest" time="0.0"/>

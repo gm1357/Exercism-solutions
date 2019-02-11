@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 class Hamming {
 
     private String leftStrand;
@@ -15,15 +17,9 @@ class Hamming {
     }
 
     int getHammingDistance() {
-        int distance = 0;
-
-        for (int i = 0; i < this.length; i++) {
-            if (this.leftStrand.charAt(i) != this.rightStrand.charAt(i)) {
-                distance++;
-            }
-        }
-
-        return distance;
+        return (int) IntStream.range(0, this.length)
+                              .filter(i -> this.leftStrand.charAt(i) != this.rightStrand.charAt(i))
+                              .count();
     }
 
 }
