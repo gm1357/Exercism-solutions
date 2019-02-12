@@ -1,3 +1,3 @@
 export const reverseString = (phrase) => {
-    return  (new String(phrase)).split('').reverse().join('');
+    return  phrase.split('').reverse().join('');
 }
