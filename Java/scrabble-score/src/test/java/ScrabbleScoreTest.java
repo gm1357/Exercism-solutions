@@ -71,4 +71,10 @@ public class ScrabbleScoreTest {
         assertEquals(87, scrabble.getScore());
     }
 
+    @Test
+    public void testUnknowChar() {
+        Scrabble scrabble = new Scrabble("ç");
+        assertEquals(0, scrabble.getScore());
+    }
+
 }

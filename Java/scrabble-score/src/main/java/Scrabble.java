@@ -19,18 +19,24 @@ class Scrabble {
     private static final Integer SEVENTH_SET_POINTS = 10;
     
     private int score = 0;
-    private Map<char[], Integer> rule_set = new HashMap<char[], Integer>();
+    private Map<Character, Integer> rule_set = new HashMap<Character, Integer>();
 
     Scrabble(String word) {
-        rule_set.put(FIRST_SET, FIRST_SET_POINTS);
-        rule_set.put(SECOND_SET, SECOND_SET_POINTS);
-        rule_set.put(THIRD_SET, THIRD_SET_POINTS);
-        rule_set.put(FOURTH_SET, FOURTH_SET_POINTS);
-        rule_set.put(FIFTH_SET, FIFTH_SET_POINTS);
-        rule_set.put(SIXTH_SET, SIXTH_SET_POINTS);
-        rule_set.put(SEVENTH_SET, SEVENTH_SET_POINTS);
+        this.putAll(FIRST_SET, FIRST_SET_POINTS);
+        this.putAll(SECOND_SET, SECOND_SET_POINTS);
+        this.putAll(THIRD_SET, THIRD_SET_POINTS);
+        this.putAll(FOURTH_SET, FOURTH_SET_POINTS);
+        this.putAll(FIFTH_SET, FIFTH_SET_POINTS);
+        this.putAll(SIXTH_SET, SIXTH_SET_POINTS);
+        this.putAll(SEVENTH_SET, SEVENTH_SET_POINTS);
 
         this.calculateScore(word.toUpperCase());
+    }
+
+    void putAll(char[] keys, Integer value) {
+        for (Character key : keys) {
+            rule_set.put(key, value);
+        }
     }
 
     void calculateScore(String word) {
@@ -40,12 +46,7 @@ class Scrabble {
     }
 
     int checkLetter(Character letter) {
-        for (Map.Entry<char[], Integer> rule : rule_set.entrySet()) {
-            if (new String(rule.getKey()).contains(letter.toString())) {
-                return rule.getValue();
-            }
-        }
-        return 0;
+        return rule_set.getOrDefault(letter, 0);
     }
 
     int getScore() {
