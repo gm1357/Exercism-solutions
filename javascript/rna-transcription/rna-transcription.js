@@ -3,9 +3,16 @@ export const toRna = (strand) => {
         throw new Error('Invalid input DNA.');
     }
 
-    return strand.replace(new RegExp('G', 'g'), 'c')
-                 .replace(new RegExp('C', 'g'), 'g')
-                 .replace(new RegExp('T', 'g'), 'a')
-                 .replace(new RegExp('A', 'g'), 'u')
-                 .toUpperCase();
+    return strand.split('').map(nucleotide => {
+        switch (nucleotide) {
+            case 'G':
+                return 'C';
+            case 'C':
+                return 'G';
+            case 'T':
+                return 'A';
+            case 'A':
+                return 'U';
+        }
+    }).join('');
 }
