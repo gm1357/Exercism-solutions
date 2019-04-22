@@ -1,3 +1,5 @@
+from heapq import nlargest
+
 class HighScores(object):
     scores = []
 
@@ -8,7 +10,7 @@ class HighScores(object):
         return self.scores[-1]
 
     def personal_best(self):
-        return sorted(self.scores, reverse=True)[0]
+        return max(self.scores)
     
     def personal_top_three(self):
-        return sorted(self.scores, reverse=True)[0:3]
+        return nlargest(3, self.scores)
