@@ -12,4 +12,8 @@ enum Signal {
         return signalValue;
     }
 
+    public static boolean isBitSetInNumber(int number, int bit) {
+        return (number & bit) > 0;
+    }
+
 }

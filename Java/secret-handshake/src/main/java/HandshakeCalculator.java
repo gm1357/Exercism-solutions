@@ -11,12 +11,12 @@ class HandshakeCalculator {
         List<Signal> handshakeSignals = new ArrayList<Signal>();
         
         Stream.of(Signal.values()).forEach(signal -> {
-            if ((number & signal.getValue()) > 0) {
+            if (Signal.isBitSetInNumber(number, signal.getValue())) {
                 handshakeSignals.add(signal);
             }
         });
 
-        if ((number & REVERSE) > 0) {
+        if (Signal.isBitSetInNumber(number, REVERSE)) {
             Collections.reverse(handshakeSignals);
         }
 
