@@ -1,20 +1,16 @@
-const COLORS = [
-  {color: "black", value: 0},
-  {color: "brown", value: 1},
-  {color: "red", value: 2},
-  {color: "orange", value: 3},
-  {color: "yellow", value: 4},
-  {color: "green", value: 5},
-  {color: "blue", value: 6},
-  {color: "violet", value: 7},
-  {color: "grey", value: 8},
-  {color: "white", value: 9},
-];
+const COLORS = {
+  black: 0,
+  brown: 1,
+  red: 2,
+  orange: 3,
+  yellow: 4,
+  green: 5,
+  blue: 6,
+  violet: 7,
+  grey: 8,
+  white: 9,
+};
 
 export const value = colors => {
-  let colorsValue = "";
-
-  colors.forEach(color => colorsValue += COLORS.find(resistor => resistor.color == color).value);
-
-  return parseInt(colorsValue);
+  return Number(colors.map(color => COLORS[color]).join(""));
 };
