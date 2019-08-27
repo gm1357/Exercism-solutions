@@ -3,7 +3,7 @@
 
 main () {
     if [ "$#" -ne  "1" ]; then
-        echo "Usage: ./`basename $0` <number>"
+        echo "Usage: ./$(basename "$0") <number>"
         exit 1
     fi
 
@@ -16,9 +16,9 @@ main () {
 
 build_raindrop() {
 
-    check_factor $1 3 "Pling"
-    check_factor $1 5 "Plang"
-    check_factor $1 7 "Plong"
+    check_factor "$1" 3 "Pling"
+    check_factor "$1" 5 "Plang"
+    check_factor "$1" 7 "Plong"
 
     if [[ -z "$raindrop_string" ]]; then
         raindrop_string="$1"
@@ -26,7 +26,7 @@ build_raindrop() {
 }
 
 check_factor() {
-    if [[ `expr $1 % $2` -eq "0" ]]; then
+    if [[ $(( "$1" % "$2" )) -eq "0" ]]; then
         raindrop_string="${raindrop_string}$3"
     fi
 }
