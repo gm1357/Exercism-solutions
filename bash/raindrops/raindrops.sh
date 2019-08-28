@@ -2,7 +2,7 @@
 
 
 main () {
-    if [ "$#" -ne  "1" ]; then
+    if (( "$#" != 1 )); then
         echo "Usage: ./$(basename "$0") <number>"
         exit 1
     fi
@@ -26,7 +26,7 @@ build_raindrop() {
 }
 
 check_factor() {
-    if [[ $(( "$1" % "$2" )) -eq "0" ]]; then
+    if (( "$1" % "$2" == 0 )); then
         raindrop_string="${raindrop_string}$3"
     fi
 }
