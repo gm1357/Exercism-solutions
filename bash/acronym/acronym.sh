@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 main () {
-    phrase=`replace_symbols "$1"`
+    phrase=$(replace_symbols "$1")
     write_acronym "$phrase"
 }
 
 replace_symbols() {
     string="$1"
-    echo "${string//[-,*,_]/ }"
+    echo "${string//[-*_]/ }"
 }
 
 write_acronym() {
