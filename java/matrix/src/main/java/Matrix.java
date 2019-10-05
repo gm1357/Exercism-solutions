@@ -6,10 +6,10 @@ class Matrix {
 
     Matrix(String matrixAsString) {
         String[] rows = matrixAsString.split("\n");
-        matrix = new int[rows.length][rows[0].length()];
+        matrix = new int[rows.length][];
 
         for (int i = 0; i < rows.length; i++) {
-            int[] columnNumbers = Arrays.stream(rows[i].split(" ")).map(Integer::parseInt).mapToInt(Integer::intValue).toArray();
+            int[] columnNumbers = Arrays.stream(rows[i].split(" ")).mapToInt(Integer::parseInt).toArray();
 
             matrix[i] = columnNumbers;
         }

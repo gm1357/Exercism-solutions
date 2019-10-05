@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MatrixTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-08-22T19:51:46" hostname="gmachado-System-Product-Name" time="0.012">
+<testsuite name="MatrixTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-10-05T16:46:43" hostname="WINTERMUTE" time="0.014">
   <properties/>
-  <testcase name="extractRowFromOneNumberMatrixTest" classname="MatrixTest" time="0.009"/>
+  <testcase name="extractRowFromOneNumberMatrixTest" classname="MatrixTest" time="0.011"/>
   <testcase name="extractRowFromDiffWidthsMatrixTest" classname="MatrixTest" time="0.0"/>
   <testcase name="extractColumnFromNonSquareMatrixTest" classname="MatrixTest" time="0.0"/>
   <testcase name="extractColumnFromDiffWidthsMatrixTest" classname="MatrixTest" time="0.0"/>
