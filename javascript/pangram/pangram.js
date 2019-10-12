@@ -1,6 +1,11 @@
 export const isPangram = (sentence) => {
-  return "abcdefghijklmnopqrstuvwxyz"
+  let letters = new Set();
+
+  sentence
+    .toLowerCase()
+    .replace(/[\d ._'"]/g, '')
     .split('')
-    .filter(letter => !sentence.toLowerCase().includes(letter))
-    .length == 0
+    .forEach(letter => letters.add(letter));
+
+  return letters.size == 26;
 };
