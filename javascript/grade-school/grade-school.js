@@ -1,34 +1,39 @@
 export class GradeSchool {
-  gradesToNames = {};
-  namesToGrades = {};
+  grades = {};
+  students = {};
 
   roster() {
-    return JSON.parse(JSON.stringify(this.gradesToNames));
+    return this._deepClone(this.grades);
   }
 
   add(name, grade) {
     this._handleExistingName(name, grade);
 
-    if (this.gradesToNames[grade]) {
-      this.gradesToNames[grade].push(name);
-      this.gradesToNames[grade] = this.gradesToNames[grade].sort();
-    } else {
-      this.gradesToNames[grade] = [name];
-    }
+    this.grades[grade] = (this.grades[grade] || []).concat(name);
+    this.grades[grade] = this.grades[grade].sort();
   }
 
   grade(value) {
-    return this.gradesToNames[value]
-      ? JSON.parse(JSON.stringify(this.gradesToNames[value]))
+    return this.grades[value]
+      ? [...this.grades[value]]
       : [];
   }
 
   _handleExistingName(name, grade) {
-    const oldGrade = this.namesToGrades[name];
+    const oldGrade = this.students[name];
     if (oldGrade) {
-      this.gradesToNames[oldGrade] = this.gradesToNames[oldGrade].filter(rosterName => rosterName !== name);
+      this.grades[oldGrade] = this.grades[oldGrade].filter(rosterName => rosterName !== name);
     }
 
-    this.namesToGrades[name] = grade;
+    this.students[name] = grade;
+  }
+
+  _deepClone(obj) {
+    const copy = {}
+    for (let prop of Object.keys(obj)) {
+      copy[prop] = [...obj[prop]];
+    }
+
+    return copy;
   }
 }
