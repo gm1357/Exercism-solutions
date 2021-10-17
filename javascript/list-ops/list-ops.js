@@ -4,14 +4,25 @@ export class List {
     this.size = null;
   }
 
-  append(list) {
-    return new List([...this.values, ...list.values]);
+  append({ values }) {
+    this.values = [...this.values, ...values];
+    return this;
   }
 
-  concat(list) {
+  concat({ values }) {
+    let flattenList = [];
+
+    for (let element of [...values]) {
+      if ('values' in element) {
+        flattenList = [...flattenList, ...element.values];
+      } else {
+        flattenList = [...flattenList, ...element];
+      }
+    }
+
     return new List([
       ...this.values,
-      ...list.values.reduce((previous, current) => [...previous, ...current.values], [])
+      ...flattenList
     ]);
   }
 
