@@ -58,6 +58,8 @@ describe('returns the length of a list', () => {
   test('non-empty list', () => {
     const list1 = new List([1, 2, 3, 4]);
     expect(list1.length()).toEqual(4);
+    list1.append(new List([5]))
+    expect(list1.length()).toEqual(5);
   });
 });
 

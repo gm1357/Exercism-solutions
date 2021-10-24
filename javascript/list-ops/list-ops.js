@@ -6,24 +6,18 @@ export class List {
 
   append({ values }) {
     this.values = [...this.values, ...values];
+    this._clearSize();
     return this;
   }
 
   concat({ values }) {
-    let flattenList = [];
+    const flattenList = new List([...this.values]);
 
-    for (let element of [...values]) {
-      if ('values' in element) {
-        flattenList = [...flattenList, ...element.values];
-      } else {
-        flattenList = [...flattenList, ...element];
-      }
+    for (let element of values) {
+      flattenList.append(element);
     }
 
-    return new List([
-      ...this.values,
-      ...flattenList
-    ]);
+    return flattenList;
   }
 
   filter(filterFunction) {
@@ -46,11 +40,7 @@ export class List {
 
   length() {
     if (this.size == null) {
-      let count = 0;
-      for (let _ of this.values) {
-        count++;
-      }
-      this.size = count;
+      this._calculateSize();
     }
     return this.size;
   }
@@ -63,10 +53,7 @@ export class List {
   }
 
   foldr(foldFunction, acc) {
-    for (let i = this.length() - 1; i >= 0; i--) {
-      acc = foldFunction(acc, this.values[i]);
-    }
-    return acc;
+    return this.reverse().foldl(foldFunction, acc);
   }
 
   reverse() {
@@ -75,5 +62,17 @@ export class List {
       reverseList = [element, ...reverseList];
     }
     return new List(reverseList);
+  }
+
+  _clearSize() {
+    this.size = null;
+  }
+
+  _calculateSize() {
+    let count = 0;
+    for (let _ of this.values) {
+      count++;
+    }
+    this.size = count;
   }
 }
